@@ -1,29 +1,14 @@
-﻿// Здраствуйте в моем файле присутствует  четыре ветки по количеству  задач. Задачи  пронумерованы  идентично   материалу.
+﻿/// Задача 4
 
+    Console.WriteLine("Введите три числа");
+int a = int.Parse(Console.ReadLine());
+int b = int.Parse(Console.ReadLine());
+int c = int.Parse(Console.ReadLine());
 
-//Задача 2
-//  Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+int max=a;
+if (b>max)max=b;
+if (c>max)max=c;
 
+Console.WriteLine("вывод " + max);
 
-
-
-int a= 5, b=7;
-    a=2;  b=10;
-    a=-9; b=-3;
-Console.WriteLine ("Введите два числа a и b ");
-a=Convert.ToInt32(Console.ReadLine());
-b=Convert.ToInt32(Console.ReadLine());
-
-if(a>b)
-{
-    int max=a;
-    int min=b;
-    Console.Write (("Максимальное значение", max=a,"Минимальное значение", min=b));
-}
-else
-{
-    int max=b;
-    int min=a;
-    Console.Write(("Максимальное значение", max=b,"Минимальное значение", min=a));
-}
 
