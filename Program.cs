@@ -1,18 +1,14 @@
-﻿// Задача 6
+﻿// Задача 8
 
-Console.WriteLine("Введите значение x= ");
-int x = int.Parse(Console.ReadLine());
+// К сожалению с данной задачей  воникли наибольшие трудности,  так как я не смог  подставить туда  сразу 
+// второй комплект  чисел
 
-if (x%2==0)
-{
-    Console.WriteLine("четное");
-}
+for (int x = 1; x < 5; x++)
 
-else
-{
-    Console.WriteLine("нечетное");
+ if (x % 2 == 0)
+  Console.WriteLine("вывод x " + x);
 
-}
+
 
 
 
