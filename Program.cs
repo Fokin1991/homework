@@ -1,14 +1,18 @@
-﻿/// Задача 4
+﻿// Задача 6
 
-    Console.WriteLine("Введите три числа");
-int a = int.Parse(Console.ReadLine());
-int b = int.Parse(Console.ReadLine());
-int c = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите значение x= ");
+int x = int.Parse(Console.ReadLine());
 
-int max=a;
-if (b>max)max=b;
-if (c>max)max=c;
+if (x%2==0)
+{
+    Console.WriteLine("четное");
+}
 
-Console.WriteLine("вывод " + max);
+else
+{
+    Console.WriteLine("нечетное");
+
+}
+
 
 
