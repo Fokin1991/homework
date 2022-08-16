@@ -10,7 +10,7 @@ int x1=Convert.ToInt32(ReadLine());
 int y1=Convert.ToInt32(ReadLine());
 int z1=Convert.ToInt32(ReadLine());
 
-WriteLine("Введите координаты первой точки");
+WriteLine("Введите координаты второй точки");
 
 int x2=Convert.ToInt32(ReadLine());
 int y2=Convert.ToInt32(ReadLine());
