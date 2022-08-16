@@ -2,7 +2,7 @@
 using static System.Console;
 
 Clear();
-WriteLine("Введите значение ");
+Write("Введите значение ");
 
 int NumberA=Convert.ToInt32(ReadLine());
 
@@ -19,4 +19,4 @@ while(index<NumberA+1)
     index++;
 }
 
-WriteLine($"Таблица кубов для значения {NumberA}");
+WriteLine($"Таблица кубов для значения {NumberA} ");
