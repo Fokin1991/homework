@@ -1,22 +1,31 @@
-﻿// Задача 21 
+﻿// Задача 19 
+
 using static System.Console;
 
 Clear();
+WriteLine("Введите пятизначное число");
+
+int NumberA=Convert.ToInt32(ReadLine());
+int ReveseNumber=0;
 
 
-WriteLine("Введите координаты первой точки"  );
+while (NumberA>0)
+{
+    ReveseNumber=(ReveseNumber*10)+(NumberA%10);
+    NumberA=NumberA/10;
+}   WriteLine(ReveseNumber);
 
-int x1=Convert.ToInt32(ReadLine());
-int y1=Convert.ToInt32(ReadLine());
-int z1=Convert.ToInt32(ReadLine());
+string B=Convert.ToString(ReveseNumber);
 
-WriteLine("Введите координаты первой точки");
+if (B[0]==B[4] || B[1]==B[3])
+{
+    Console.WriteLine($"Ваше число: {B} - палиндром.");
+  }
+  else 
+  {
+     Console.WriteLine($"Ваше число: {B} - НЕ палиндром.");
+  }
 
-int x2=Convert.ToInt32(ReadLine());
-int y2=Convert.ToInt32(ReadLine());
-int z2=Convert.ToInt32(ReadLine());
 
-
-
-double distance=Math.Sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1));
-WriteLine($"Дистанция между точками {distance:f2}");
+  
+    
