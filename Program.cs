@@ -1,14 +1,22 @@
-﻿/// Задача 4
+﻿// Задача 23 
+using static System.Console;
 
-    Console.WriteLine("Введите три числа");
-int a = int.Parse(Console.ReadLine());
-int b = int.Parse(Console.ReadLine());
-int c = int.Parse(Console.ReadLine());
+Clear();
+WriteLine("Введите значение ");
 
-int max=a;
-if (b>max)max=b;
-if (c>max)max=c;
-
-Console.WriteLine("вывод " + max);
+int NumberA=Convert.ToInt32(ReadLine());
 
 
+
+
+
+int index=1;
+while(index<NumberA+1)
+{
+    
+    
+    WriteLine(Math.Pow(index,3));
+    index++;
+}
+
+WriteLine($"Таблица кубов для значения {NumberA}");
