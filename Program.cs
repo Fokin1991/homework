@@ -1,22 +1,22 @@
-﻿// Задача 23 
+﻿// Задача 21 
 using static System.Console;
 
 Clear();
-Write("Введите значение ");
-
-int NumberA=Convert.ToInt32(ReadLine());
 
 
+WriteLine("Введите координаты первой точки"  );
+
+int x1=Convert.ToInt32(ReadLine());
+int y1=Convert.ToInt32(ReadLine());
+int z1=Convert.ToInt32(ReadLine());
+
+WriteLine("Введите координаты первой точки");
+
+int x2=Convert.ToInt32(ReadLine());
+int y2=Convert.ToInt32(ReadLine());
+int z2=Convert.ToInt32(ReadLine());
 
 
 
-int index=1;
-while(index<NumberA+1)
-{
-    
-    
-    WriteLine(Math.Pow(index,3));
-    index++;
-}
-
-WriteLine($"Таблица кубов для значения {NumberA} ");
+double distance=Math.Sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1));
+WriteLine($"Дистанция между точками {distance:f2}");
