@@ -10,7 +10,7 @@ int ReveseNumber=0;
 
 
 while (NumberA>0)
-{ 1
+{ 
     ReveseNumber=(ReveseNumber*10)+(NumberA%10);
     NumberA=NumberA/10;
 }   WriteLine(ReveseNumber);
