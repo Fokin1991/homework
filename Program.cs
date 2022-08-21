@@ -1,29 +1,20 @@
-﻿// Здраствуйте в моем файле присутствует  четыре ветки по количеству  задач. Задачи  пронумерованы  идентично   материалу.
+﻿using static System.Console;
+
+Clear();
+WriteLine("введите  два числа");
+
+int NumberA=Convert.ToInt32(ReadLine());
+int NumberB=Convert.ToInt32(ReadLine());
 
 
-//Задача 2
+int exponentiate(int NumberA , int NumberB)
 
-
-int a= 5, b=7;
-    a=2;  b=10;
-    a=-9; b=-3;
-Console.WriteLine ("Введите два числа a и b ");
-a=Convert.ToInt32(Console.ReadLine());
-b=Convert.ToInt32(Console.ReadLine());
-
-if(a>b)
 {
-    int max=a;
-    int min=b;
-    Console.Write (("Максимальное значение", max=a,"Минимальное значение", min=b));
-}
-else
+    int result=0;
+for (int i = 0;  NumberA<NumberB; i++)
 {
-    int max=b;
-    int min=a;
-    Console.Write(("Максимальное значение", max=b,"Минимальное значение", min=a));
+    
 }
-
-
-
+    return result;
+}
 
