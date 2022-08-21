@@ -1,4 +1,6 @@
-﻿using static System.Console;
+﻿//Задача 25
+
+using static System.Console;
 
 Clear();
 
@@ -21,6 +23,7 @@ int exponentiate(int NumberA, int NumberB)
 
 {
     int result=1;
+    
 for (int i = 0;  i<NumberB; i++)
 {
     result*=NumberA;
