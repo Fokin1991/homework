@@ -1,29 +1,54 @@
-﻿// Здраствуйте в моем файле присутствует  четыре ветки по количеству  задач. Задачи  пронумерованы  идентично   материалу.
+﻿//Задача 27
 
 
-//Задача 2
+using static System.Console;
+Clear();
+WriteLine("Введите  число");
+int NumberA=Convert.ToInt32(ReadLine());
+int NumberC=GetSum(NumberA);
+WriteLine(NumberC);
 
 
-int a= 5, b=7;
-    a=2;  b=10;
-    a=-9; b=-3;
-Console.WriteLine ("Введите два числа a и b ");
-a=Convert.ToInt32(Console.ReadLine());
-b=Convert.ToInt32(Console.ReadLine());
-
-if(a>b)
+int GetSum(int NumberA)
 {
-    int max=a;
-    int min=b;
-    Console.Write (("Максимальное значение", max=a,"Минимальное значение", min=b));
-}
-else
+    int result=0;
+    int index=0;
+    string B=Convert.ToString(NumberA);
+    
+
+   
+while (index<B.Length)
 {
-    int max=b;
-    int min=a;
-    Console.Write(("Максимальное значение", max=b,"Минимальное значение", min=a));
+    int C=NumberA%10;
+    int D=NumberA/10;
+    int E=D%10;
+    int J=NumberA/100;
+    
+    int I=NumberA/100;
+    int G=I%10;
+    int H=I/10;
+    
+    result=+G+C+E+H;
+    index++;
+}
+
+
+    return result;
 }
 
 
 
+
+ 
+
+
+
+
+
+
+
+
+    
+
+   
 
