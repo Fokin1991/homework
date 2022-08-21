@@ -2,7 +2,7 @@
 
 Clear();
 
-WriteLine("Введите  два число");
+WriteLine("Введите  число");
 int NumberA=Convert.ToInt32(ReadLine());
 
 WriteLine("Введите степень числа");
