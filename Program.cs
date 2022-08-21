@@ -1,45 +1,17 @@
-﻿//Задача 27
+﻿//Задача 29
 
 
 using static System.Console;
 Clear();
-WriteLine("Введите  число");
-int NumberA=Convert.ToInt32(ReadLine());
-int NumberC=GetSum(NumberA);
-WriteLine(NumberC);
-
-
-int GetSum(int NumberA)
+string [] arrayString=ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries);
+int [] array=new int[arrayString.Length];
+for (int i = 0;  i<arrayString.Length; i++)
 {
-    int result=0;
-    int index=0;
-    string B=Convert.ToString(NumberA);
-    
-
-   
-while (index<B.Length)
-{
-    int C=NumberA%10;
-    int D=NumberA/10;
-    int E=D%10;
-    int J=NumberA/100;
-    
-    int I=NumberA/100;
-    int G=I%10;
-    int H=I/10;
-    
-    result=+G+C+E+H;
-    index++;
+    array[i]=int.Parse(arrayString[i]);
 }
+WriteLine($"[{String.Join(",",arrayString)}]");
 
-
-    return result;
-}
-
-
-
-
- 
+ //Последнее было  списано с семинара  я еще до этого  дохожу 
 
 
 
