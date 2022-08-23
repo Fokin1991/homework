@@ -26,16 +26,8 @@ int GetSum(int NumberA)
    
 while (index<B.Length)
 {
-    int C=NumberA%10;
-    int D=NumberA/10;
-    int E=D%10;
-    int J=NumberA/100;
-    
-    int I=NumberA/100;
-    int G=I%10;
-    int H=I/10;
-    
-    result=+G+C+E+H;
+    result+=NumberA%10;
+    NumberA/=10;
     index++;
 }
 
