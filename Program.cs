@@ -1,46 +1,43 @@
 ﻿//Задача 38
 
+//<Было  очень трудно  с последним заданием;
 
 
 using static System.Console;
 
 Clear();
 
-int [] array= new int[4];
+Console.Write($"Введите количество элементов массива: ");
+int numberElements = Convert.ToInt32(Console.ReadLine()); 
 
 
 
- Write("[");
-    for (int i = 0; i < array.Length; i++)
+
+
+
+
+
+int RandomNumbers(int numberElements, int min, int max)
+  {
+  int[] randomNumbers = new int[numberElements];
+  int sumElements = 0;
+
+  Console.Write("Получившийся массив: ");
+
+    for (int i = 0; i <randomNumbers.Length; i++ )
     {
-        array[i]=new Random().Next(1,100);
-       
-        Write($"{array[i]} ");
+      randomNumbers[i] = new Random().Next(min, max);
 
-       
-    }Write("]");   
+      Console.Write(randomNumbers[i] + " ");
 
+      if (i % 2 != 1)
+      {
+        sumElements = sumElements + randomNumbers[i];
+      }
+    }
+  return sumElements;
+  }
 
-int numberMin=array[0];
-int numberMax=array[0];
-    
+int randomNumbers =  RandomNumbers(numberElements, 1, 10);
 
-
-    for (int i = 0; i < array.Length; i++)
-    {
-       
-        if (array[i]<numberMin)
-        {
-            numberMin=array[i];
-        }
-        if (array[i]>numberMax)
-        {
-            numberMax=array[i];
-            
-        } 
-
-    }  
-
-int result=numberMax-numberMin;
-Write($" {result} Это разница между максимальным и минимальным элементами массива. ");
-
+Console.WriteLine($"\nСумма элементов, стоящих на нечётных позициях: {randomNumbers}");
