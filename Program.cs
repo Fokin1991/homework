@@ -1,4 +1,4 @@
-﻿//Задача 34
+﻿//Задача 38
 
 
 
@@ -6,63 +6,41 @@ using static System.Console;
 
 Clear();
 
-int[] array=new int[3];
-
-FillArray(array);
-PrintArray(array);
-int NumberA=DigitCount(array);
+int [] array= new int[4];
 
 
 
- void FillArray(int[] array)
- {
+ Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        array[i]=new Random().Next(100,1000);
-    }
- }
-  void PrintArray(int[] array)
-  {
+        array[i]=new Random().Next(1,100);
+       
+        Write($"{array[i]} ");
+
+       
+    }Write("]");   
+
+
+int numberMin=array[0];
+int numberMax=array[0];
+    
+
+
     for (int i = 0; i < array.Length; i++)
     {
        
-    }
-  }
+        if (array[i]<numberMin)
+        {
+            numberMin=array[i];
+        }
+        if (array[i]>numberMax)
+        {
+            numberMax=array[i];
+            
+        } 
 
- 
+    }  
 
-
-
-
-int  DigitCount(int [] array)
-{
-    int result=0;
-      Write("[");
-    for (int i = 0; i < array.Length; i++)
-   
-    {
-        if(array[i]%2==0)
-        result++;
-        
-        Write($" {array[i]}");
-       
-    } Write ("] ");
-    
-     
-
-
-
-    return result;
-
-}
-Write ($"{NumberA}-Это количество  четных  чисел  в массиве");
-
-
-
-
-
-
-    
-
-   
+int result=numberMax-numberMin;
+Write($" {result} Это разница между максимальным и минимальным элементами массива. ");
 
