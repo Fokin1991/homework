@@ -34,7 +34,6 @@ int NumberA=DigitCount(array);
 
 
 
-
 int  DigitCount(int [] array)
 {
     int result=0;
