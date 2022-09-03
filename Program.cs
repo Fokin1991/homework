@@ -38,7 +38,7 @@ void PrintMatrixArray(double[,] InArray)
 {
     for (int i = 0; i < InArray.GetLength(0); i++)
     {
-        for (int j = 0; j < InArray.GetLongLength(1); j++)
+        for (int j = 0; j < InArray.GetLength(1); j++)
         {
             Write($"{InArray[i,j]} ");
         }
