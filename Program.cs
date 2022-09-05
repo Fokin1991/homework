@@ -1,4 +1,4 @@
-﻿//Задача 52
+﻿//Задача 54
 
 
 
@@ -8,96 +8,68 @@ using System.Linq;
 Clear();
 WriteLine("Введите  размер массива");
 
-Console.Write("Введите m: ");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите n: ");
-int n = Convert.ToInt32(Console.ReadLine());
+
 
 Console.Clear();
-Console.WriteLine($"m = {m}, n = {n}.");
+Console.WriteLine($"Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.");
+Console.WriteLine($"\nВведите размер массива m x n и диапазон случайных значений:");
+int m = InputNumbers("Введите m: ");
+int n = InputNumbers("Введите n: ");
+int range = InputNumbers("Введите диапазон: от 1 до ");
 
-double[,] array = new double[m, n];
-
-CreateArrayDouble(array);
-
+int[,] array = new int[m, n];
+CreateArray(array);
 WriteArray(array);
 
-Console.WriteLine();
+Console.WriteLine($"\nОтсортированный массив: ");
+OrderArrayLines(array);
+WriteArray(array);
 
-
-
-
-
-
-void CreateArrayDouble(double[,] array)
+void OrderArrayLines(int[,] array)
 {
-  for (int i = 0; i < m; i++)
-  {
-    for (int j = 0; j < n; j++)
-    {
-      array[i, j] = new Random().NextDouble() * 20 ;
-    }
-  }
-}
-
-void WriteArray (double[,] array)
-{
-for (int i = 0; i < m; i++)
-  {
-      for (int j = 0; j < n; j++)
-      {
-        double alignNumber = Math.Round(array[i, j], 1);
-        Console.Write(alignNumber + " ");
-      }
-      Console.WriteLine();
-  }
-}
-
-
-int[,] arrayWhole = new int[m, n];
-arrayWhole = TransformationArrayWhole(array);
-
-WriteArrayInt(arrayWhole);
-
-Console.Write($"Cреднее арифметическое:");
-for (int i = 0; i < n; i++)
-{
-  double arithmeticMean = 0;
-  for (int j = 0; j < m; j++)
-  {
-    arithmeticMean += arrayWhole[j, i];
-  }
-  arithmeticMean = Math.Round(arithmeticMean / m, 1);
-  Console.WriteLine($"столбца № {i+1} {arithmeticMean}");
-}
-
-int[,] TransformationArrayWhole (double[,] array)
-{
-  int[,] arrayWhole = new int[array.GetLength(0), array.GetLength(1)];
   for (int i = 0; i < array.GetLength(0); i++)
   {
     for (int j = 0; j < array.GetLength(1); j++)
     {
-      arrayWhole[i, j] = Convert.ToInt32(array[i, j]);
+      for (int k = 0; k < array.GetLength(1) - 1; k++)
+      {
+        if (array[i, k] < array[i, k + 1])
+        {
+          int temp = array[i, k + 1];
+          array[i, k + 1] = array[i, k];
+          array[i, k] = temp;
+        }
+      }
     }
   }
-  return arrayWhole;
 }
 
-void WriteArrayInt (int[,] arrayWhole){
-for (int i = 0; i < m; i++)
+int InputNumbers(string input)
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+void CreateArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
   {
-      for (int j = 0; j < n; j++)
-      {
-        Console.Write(arrayWhole[i, j] + " ");
-      }
-      Console.WriteLine();
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      array[i, j] = new Random().Next(range);
+    }
   }
 }
 
-
-
-
-
-
-
+void WriteArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      Console.Write(array[i, j] + " ");
+    }
+    Console.WriteLine();
+  }
+}
