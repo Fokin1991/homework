@@ -35,16 +35,27 @@ else
     WriteLine(" нет числа");
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int Read(string message)
 {
     Console.Write(message);
     return Convert.ToInt32(Console.ReadLine());
 }
  
-
-
-
-
 
 
 
