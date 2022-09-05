@@ -24,6 +24,11 @@ WriteArray(array);
 
 Console.WriteLine();
 
+
+
+
+
+
 void CreateArrayDouble(double[,] array)
 {
   for (int i = 0; i < m; i++)
@@ -35,7 +40,8 @@ void CreateArrayDouble(double[,] array)
   }
 }
 
-void WriteArray (double[,] array){
+void WriteArray (double[,] array)
+{
 for (int i = 0; i < m; i++)
   {
       for (int j = 0; j < n; j++)
