@@ -13,49 +13,35 @@ int [,] array= new int[n,m];
 WriteLine();
 WriteLine();
 ArrayMatrix(array);
+
+WriteLine();
+WriteLine();
 PrintArray(array);
+
 WriteLine();
-WriteLine();
-
-
-
 WriteLine("Для того что бы  получить нужный эелемент  массива, необходимо помнить, что его  индексирование  начинается с нуля  а не с единицы. Поэтому находя  второй элемент, первой строки в массиве 3x4  вы должны помнить,  что этот элемент  по строке имеет идекс 1, а по столбцу 0 ");
 WriteLine();
-int a=Read("Введите  индекс столбца что бы получить элемент  ");
+WriteLine();
+WriteLine("Введите  индекс столбца что бы получить элемент  таблицы");
+int a=Convert.ToInt32(ReadLine());
 WriteLine();
 WriteLine();
-int b=Read("Введите  индекс строки что бы получить элемент  ");
+WriteLine("Введите  индекс строки что бы получить элемент  таблицы");
+int b=Convert.ToInt32(ReadLine());
 
 if (a<n && b<m)
 {
-    WriteLine($"{array[a,b]}");
+    WriteLine($"{array[a,b]} Элемент  таблицы");
 }
 else
 {
-    WriteLine(" нет числа");
+    WriteLine("Нет такого  элемента");
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-int Read(string message)
-{
-    Console.Write(message);
-    return Convert.ToInt32(Console.ReadLine());
-}
- 
 
 
 
