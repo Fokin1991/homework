@@ -7,73 +7,87 @@ using static System.Console;
 using System.Linq;
 Clear();
 WriteLine("Введите  размер массива");
-int n=Convert.ToInt32(ReadLine());
-int m=Convert.ToInt32(ReadLine());
-int [,] array= new int[n,m];
-WriteLine();
-WriteLine();
-ArrayMatrix(array);
 
-WriteLine();
-WriteLine();
-PrintArray(array);
+Console.Write("Введите m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите n: ");
+int n = Convert.ToInt32(Console.ReadLine());
 
-WriteLine();
-WriteLine("Для того что бы  получить нужный эелемент  массива, необходимо помнить, что его  индексирование  начинается с нуля  а не с единицы. Поэтому находя  второй элемент, первой строки в массиве 3x4  вы должны помнить,  что этот элемент  по строке имеет идекс 1, а по столбцу 0 ");
-WriteLine();
-WriteLine();
-WriteLine("Введите  индекс столбца что бы получить элемент  таблицы");
-int a=Convert.ToInt32(ReadLine());
-WriteLine();
-WriteLine();
-WriteLine("Введите  индекс строки что бы получить элемент  таблицы");
-int b=Convert.ToInt32(ReadLine());
+Console.Clear();
+Console.WriteLine($"m = {m}, n = {n}.");
 
-if (a<n && b<m)
+double[,] array = new double[m, n];
+
+CreateArrayDouble(array);
+
+WriteArray(array);
+
+Console.WriteLine();
+
+void CreateArrayDouble(double[,] array)
 {
-    WriteLine($"{array[a,b]} Элемент  таблицы");
-}
-else
-{
-    WriteLine("Нет такого  элемента");
-}
-
-
-
-
-
-
-
-
-void ArrayMatrix(int [,]matrix)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i,j]=new Random().Next(1,11);
-
-        }
+      array[i, j] = new Random().NextDouble() * 20 ;
     }
+  }
+}
+
+void WriteArray (double[,] array){
+for (int i = 0; i < m; i++)
+  {
+      for (int j = 0; j < n; j++)
+      {
+        double alignNumber = Math.Round(array[i, j], 1);
+        Console.Write(alignNumber + " ");
+      }
+      Console.WriteLine();
+  }
 }
 
 
+int[,] arrayWhole = new int[m, n];
+arrayWhole = TransformationArrayWhole(array);
 
+WriteArrayInt(arrayWhole);
 
-void PrintArray(int [,]InArray)
+Console.Write($"Cреднее арифметическое:");
+for (int i = 0; i < n; i++)
 {
-    for (int i = 0; i < InArray.GetLength(0); i++)
-    {
-        for (int j = 0; j < InArray.GetLength(1); j++)
-        {
-            Write($"{InArray[i,j]} ");
-        }
-        WriteLine();
-
-    }
+  double arithmeticMean = 0;
+  for (int j = 0; j < m; j++)
+  {
+    arithmeticMean += arrayWhole[j, i];
+  }
+  arithmeticMean = Math.Round(arithmeticMean / m, 1);
+  Console.WriteLine($"столбца № {i+1} {arithmeticMean}");
 }
 
+int[,] TransformationArrayWhole (double[,] array)
+{
+  int[,] arrayWhole = new int[array.GetLength(0), array.GetLength(1)];
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      arrayWhole[i, j] = Convert.ToInt32(array[i, j]);
+    }
+  }
+  return arrayWhole;
+}
 
+void WriteArrayInt (int[,] arrayWhole){
+for (int i = 0; i < m; i++)
+  {
+      for (int j = 0; j < n; j++)
+      {
+        Console.Write(arrayWhole[i, j] + " ");
+      }
+      Console.WriteLine();
+  }
+}
 
 
 
