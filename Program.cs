@@ -1,103 +1,87 @@
 ﻿//Задача 52
 
 
-
-
 using static System.Console;
 using System.Linq;
 Clear();
-WriteLine("Введите  размер массива");
+int n=Convert.ToInt32(ReadLine());
+int m=Convert.ToInt32(ReadLine());
+WriteLine();
+WriteLine();
 
-Console.Write("Введите m: ");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите n: ");
-int n = Convert.ToInt32(Console.ReadLine());
+int [,] array=new int[n,m];
 
-Console.Clear();
-Console.WriteLine($"m = {m}, n = {n}.");
 
-double[,] array = new double[m, n];
+Getmatrix(array);
 
-CreateArrayDouble(array);
-
-WriteArray(array);
-
-Console.WriteLine();
+PrintMatrix(array);
 
 
 
 
+WriteLine();
+WriteLine();
 
 
-void CreateArrayDouble(double[,] array)
+
+WriteLine();
+WriteLine();
+
+
+
+WriteLine();
+
+for (int i = 0; i < array.GetLength(0); i++)
+{ double  result=0;
+for (int j = 0; j < array.GetLength(1); j++)
 {
-  for (int i = 0; i < m; i++)
-  {
-    for (int j = 0; j < n; j++)
+    result=(result+array[i,j]);
+}
+   Write($"{Math.Round(Convert.ToDouble(result)/Convert.ToDouble(n),1)} ");
+
+ 
+
+   
+
+}
+
+
+
+
+
+
+
+void Getmatrix(int [,]MatrixArray)
+{
+    for (int i = 0; i < MatrixArray.GetLength(0); i++)
     {
-      array[i, j] = new Random().NextDouble() * 20 ;
+        for (int j = 0; j < MatrixArray.GetLength(1); j++)
+        {
+            MatrixArray[i,j]=new Random().Next(1,11);
+        }
+        
     }
-  }
-}
-
-void WriteArray (double[,] array)
-{
-for (int i = 0; i < m; i++)
-  {
-      for (int j = 0; j < n; j++)
-      {
-        double alignNumber = Math.Round(array[i, j], 1);
-        Console.Write(alignNumber + " ");
-      }
-      Console.WriteLine();
-  }
 }
 
 
-int[,] arrayWhole = new int[m, n];
-arrayWhole = TransformationArrayWhole(array);
 
-WriteArrayInt(arrayWhole);
+    
 
-Console.Write($"Cреднее арифметическое:");
-for (int i = 0; i < n; i++)
+
+
+
+void PrintMatrix(int [,] InArray)
+
 {
-  double arithmeticMean = 0;
-  for (int j = 0; j < m; j++)
-  {
-    arithmeticMean += arrayWhole[j, i];
-  }
-  arithmeticMean = Math.Round(arithmeticMean / m, 1);
-  Console.WriteLine($"столбца № {i+1} {arithmeticMean}");
-}
-
-int[,] TransformationArrayWhole (double[,] array)
-{
-  int[,] arrayWhole = new int[array.GetLength(0), array.GetLength(1)];
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < InArray.GetLength(0); i++)
     {
-      arrayWhole[i, j] = Convert.ToInt32(array[i, j]);
+        for (int j = 0; j < InArray.GetLength(1); j++)
+        {
+          Write($"{InArray[i,j]} ");
+        }
+        WriteLine();
     }
-  }
-  return arrayWhole;
+
+
 }
-
-void WriteArrayInt (int[,] arrayWhole){
-for (int i = 0; i < m; i++)
-  {
-      for (int j = 0; j < n; j++)
-      {
-        Console.Write(arrayWhole[i, j] + " ");
-      }
-      Console.WriteLine();
-  }
-}
-
-
-
-
-
-
 
