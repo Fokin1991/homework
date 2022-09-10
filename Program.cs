@@ -1,4 +1,4 @@
-﻿//Задача 60
+﻿//Задача 62
 
 
 
@@ -6,69 +6,40 @@
 using static System.Console;
 using System.Linq;
 Clear();
-int count1 = InputInt("Введите размерность 1: ");
-int count2 = InputInt("Введите размерность 2: ");
-int count3 = InputInt("Введите размерность 3: ");
-int countNums = 89;
+int n = 4;
+int[,] sqareMatrix = new int[n, n];
 
-if (count1 * count2 * count3 > countNums)
+int temp = 1;
+int i = 0;
+int j = 0;
+
+while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
 {
-    Console.Write("Массив слишком большой");
-    return;
+  sqareMatrix[i, j] = temp;
+  temp++;
+  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
+    j++;
+  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
+    i++;
+  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
+    j--;
+  else
+    i--;
 }
 
-int[,,] resultNums = Create3DMassive(count1, count2, count3);
+WriteArray(sqareMatrix);
 
-for (int i = 0; i < resultNums.GetLength(0); i++)
+void WriteArray (int[,] array)
 {
-    for (int j = 0; j < resultNums.GetLength(1); j++)
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        for (int k = 0; k < resultNums.GetLength(2); k++)
-        {
-            Console.WriteLine($"[{i},{j},{k}] - {resultNums[i, j, k]}");
-        }
-        Console.WriteLine();
+      if (array[i,j] / 10 <= 0)
+      Console.Write($" {array[i,j]} ");
+
+      else Console.Write($"{array[i,j]} ");
     }
     Console.WriteLine();
-}
-
-
-int[,,] Create3DMassive(int size1, int size2, int size3)
-{
-    int[,,] array = new int[size1, size2, size3];
-    int[] values = new int[countNums];
-    int num
-     = 10;
-    for (int i = 0; i < values.Length; i++)
-        values[i] = num
-        ++;
-
-    for (int i = 0; i < values.Length; i++)
-    {
-        int randomInd = new Random().Next(0, values.Length);
-        int temp = values[i];
-        values[i] = values[randomInd];
-        values[randomInd] = temp;
-    }
-
-    int valueIndex = 0;
-
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            for (int k = 0; k < array.GetLength(2); k++)
-            {
-                array[i, j, k] = values[valueIndex++];
-            }
-        }
-    }
-    return array;
-}
-
-
-int InputInt(string output)
-{
-    Console.Write(output);
-    return int.Parse(Console.ReadLine()!);
+  }
 }
