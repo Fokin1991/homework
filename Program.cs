@@ -1,4 +1,4 @@
-﻿//Задача 67
+﻿//Задача 69
 
 
 
@@ -9,30 +9,23 @@ Clear();
 
 int m=Convert.ToInt32(ReadLine());
 int n=Convert.ToInt32(ReadLine());
-int temp = m;
+
 WriteLine();
 WriteLine();
+Console.WriteLine($"A({m}, {n}) = {Akkerman(m, n)}");
 
-
-
-
-
-if (m > n) 
+int Akkerman(int m, int n)
 {
-  m = n; 
-  n = temp;
+    if (m == 0)
+        return n + 1;
+    if (m > 0 && n == 0)
+        return Akkerman(m - 1, 1);
+    else
+        return Akkerman(m - 1, Akkerman(m, n - 1));
 }
 
-PrintSumm(m, n, temp=0);
 
-void PrintSumm(int m, int n, int summ)
-{
-  summ = summ + n;
-  if (n <= m)
-  {
-    Console.Write($"Сумма элементов= {summ} ");
-    return;
-  }
-  PrintSumm(m, n - 1, summ);
-}
+
+
+
 
