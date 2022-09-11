@@ -1,4 +1,4 @@
-﻿//Задача 64
+﻿//Задача 67
 
 
 
@@ -9,7 +9,7 @@ Clear();
 
 int m=Convert.ToInt32(ReadLine());
 int n=Convert.ToInt32(ReadLine());
-Console.WriteLine(NaturalNumber(n, m));
+int temp = m;
 WriteLine();
 WriteLine();
 
@@ -17,11 +17,22 @@ WriteLine();
 
 
 
-int NaturalNumber(int n, int m)
+if (m > n) 
 {
-    if (n == m)
-        return n;
-    else
-        Console.Write($"{NaturalNumber(n, m + 1)}, ");
-    return m;
+  m = n; 
+  n = temp;
 }
+
+PrintSumm(m, n, temp=0);
+
+void PrintSumm(int m, int n, int summ)
+{
+  summ = summ + n;
+  if (n <= m)
+  {
+    Console.Write($"Сумма элементов= {summ} ");
+    return;
+  }
+  PrintSumm(m, n - 1, summ);
+}
+
